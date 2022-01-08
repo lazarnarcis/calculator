@@ -11,12 +11,16 @@ export default function App() {
             stopCalc(true)
         }
         const getvalue = theNumber.current.value
-        if (getvalue === "" && (number === "/" || number === "+" || number === "-" || number === "*")) {
+        if (getvalue === "" && (number === "/" || number === "+" || number === "-" || number === "*" || number === ".")) {
             return
         }
         let lastChar = getvalue.substr(getvalue.length - 1)
         if ((number === "/" || number === "+" || number === "-" || number === "*") && (lastChar === "/" || lastChar === "+" || lastChar === "-" || lastChar === "*")) {
             theNumber.current.value = getvalue.slice(0, -1) + number
+        } else if (number === "." && (lastChar === "." || lastChar === "/" || lastChar === "+" || lastChar === "-" || lastChar === "*")) {
+            return
+        } else if ((number === "." || number === "/" || number === "+" || number === "-" || number === "*") && lastChar === ".") {
+            return
         } else {
             theNumber.current.value = getvalue + number
         }
@@ -38,8 +42,10 @@ export default function App() {
     return (
         <div className="calculator">
             <h1>Calculator</h1>
-            <input type="text" className="input" ref={theNumber} />
             <table>
+                <tr>
+                    <td colspan="5" className="specialTD"><input type="text" ref={theNumber} placeholder="Click on the numbers" /></td>
+                </tr>
                 <tr>
                     <td onClick={() => addValue("7")}>7</td>
                     <td onClick={() => addValue("8")}>8</td>
