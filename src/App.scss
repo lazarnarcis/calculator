@@ -23,8 +23,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
 .input {
-    width: 91.5%;
     padding: 10px;
     background: grey;
     color: white;
