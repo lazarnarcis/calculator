@@ -11,7 +11,7 @@ export default function App() {
             stopCalc(true)
         }
         const getvalue = theNumber.current.value
-        if (getvalue === "" && (number === "/" || number === "+" || number === "-" || number === "*" || number === ".")) {
+        if (getvalue === "" && (number === "/" || number === "*" || number === ".")) {
             return
         }
         let lastChar = getvalue.substr(getvalue.length - 1)
