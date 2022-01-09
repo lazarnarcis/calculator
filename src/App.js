@@ -6,11 +6,11 @@ export default function App() {
 
     const addValue = (number) => {
         const getvalue = theNumber.current.value
-        if (getvalue === "" && (number === "/" || number === "*") && ((number === "/" || number === "*") && (getvalue === "+" || getvalue === "-"))) {
+        if ((getvalue === "" && (number === "/" || number === "*")) || ((number === "/" || number === "*") && (getvalue === "+" || getvalue === "-"))) {
             return
         }
         let lastChar = getvalue.substr(getvalue.length - 1)
-        if ((number === "/" || number === "+" || number === "-" || number === "*") && (lastChar === "/" || lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === ".")) {
+        if ((number === "/" || number === "+" || number === "-" || number === "*" || number === ".") && (lastChar === "/" || lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === ".")) {
             theNumber.current.value = getvalue.slice(0, -1) + number
         } else {
             theNumber.current.value = getvalue + number
@@ -25,7 +25,7 @@ export default function App() {
         if (lastChar === "/" || lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === ".") {
             theNumber.current.value = getvalue.slice(0, -1)
         }
-        const theResult = eval(getvalue)
+        const theResult = eval(theNumber.current.value)
         theNumber.current.value = theResult
     }
     const deleteOne = () => {
@@ -40,7 +40,7 @@ export default function App() {
             <table>
                 <tbody>
                     <tr>
-                        <th colSpan="5" className="specialTD"><input type="text" ref={theNumber} placeholder="Click on the numbers" /></th>
+                        <th colSpan="5" className="specialTD"><input type="text" ref={theNumber} placeholder="Click on numbers" /></th>
                     </tr>
                     <tr>
                         <td onClick={() => addValue("7")}>7</td>
