@@ -16,7 +16,7 @@
 
 input[type=text] {
     padding: 10px;
-    background: grey;
+    background: rgb(124, 152, 175);
     color: white;
     border: none;
     outline: none;
@@ -25,7 +25,9 @@ input[type=text] {
 
 h1 {
     font-size: 35px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: rgb(124, 152, 175);
 }
 
 ::placeholder {
@@ -38,13 +40,13 @@ h1 {
         width: 60px;
         text-align: center;
         color: white;
-        background-color: grey;
+        background-color: rgb(124, 152, 175);
         font-size: 25px;
         user-select: none;
         transition: all .3s;
     }
     th:hover:not(.specialTD), td:hover {
-        background-color: rgb(34, 36, 41);
+        background-color: rgb(76, 82, 97);
     }
 }
 
