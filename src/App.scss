@@ -41,8 +41,9 @@ h1 {
         background-color: grey;
         font-size: 25px;
         user-select: none;
+        transition: all .3s;
     }
-    th:hover, td:hover:not(.specialTD) {
+    th:hover:not(.specialTD), td:hover {
         background-color: rgb(34, 36, 41);
     }
 }
